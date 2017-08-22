@@ -1,0 +1,11 @@
+{
+  "name": "src",
+  "authors": [
+    "rkpattnaik780 <rkpattnaik780@gmail.com>"
+  ],
+  "description": "the angular cli with express",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {}
+}

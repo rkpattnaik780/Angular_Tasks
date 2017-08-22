@@ -1,0 +1,67 @@
+<table class="table table-striped narrow">
+  <thead class="spaciate">
+    <th>Category</th>
+    <th>Expense Limit</th>
+    <th>List</th>
+    <th>Total Price</th>
+    <th>Amount Expended</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <th [class.redtext] = "item.exceed === 1">{{item.category}}</th>
+      <td>{{item.limit}}</td>
+      <td>
+        <div *ngFor="let content of item.contents">{{content.name}} = {{content.price}}</div>
+      </td>
+      <td>{{item.total}}</td>
+      <td>{{item.expend}}%</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-sm-8">
+    <h1 class = "text-center">Add New Expenses</h1>
+    <div class="form-group">
+      <label for="">Expense Name :</label>
+      <input type="text" class="form-control" id="expname" placeholder="Enter expense name" [(ngModel)] = "newname" required>
+
+  </div> 
+
+  <div class="form-group">
+      <label for="">Expense Category :</label>
+      
+      <select class="form-control" [(ngModel)] = "newcat" ngControl="i" placeholder="Select the category">{{newcat}} 
+        <option *ngFor="let i of items" [value]="i.category">{{i.category}}</option>
+        
+      </select>
+
+  </div> 
+
+  
+
+    <div class="form-group">
+      <label for="">Expense Cost :</label>
+      <input type="text" class="form-control" id="expcost" placeholder="Enter the cost" [(ngModel)] = "newprice" required>
+    </div>
+
+    <div class="form-group">
+      <label for="">Payment Method : </label>
+      <input type="text" class="form-control" id="expmethod" placeholder="Enter the payment method" [(ngModel)] = "newmethod" required>
+    </div>
+    <button class="btn btn-info" (click) = "addexp(newcat,newname,newprice)">Submit</button>
+    <br>
+    </div>
+    <div class = "col-sm-4">
+      <h1 class = "text-center">Add New Categories</h1>
+      <div class="form-group">
+      <label for="">New Category : </label>
+      <input type="text" class="form-control" placeholder="Enter the new category" [(ngModel)] = "newCat_name" required>
+    </div>
+    <div class="form-group">
+      <label for="">Category Limit : </label>
+      <input type="text" class="form-control"placeholder="Enter the limit for category" [(ngModel)] = "newCat_limit" required>
+    </div>
+    <button class="btn btn-primary" (click) = "addcategory(newCat_name,newCat_limit)">Submit</button>
+    </div>
+</div>
